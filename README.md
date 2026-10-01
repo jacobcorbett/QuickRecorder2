@@ -1,3 +1,23 @@
+# Quick Recorder 2
+
+Jacob Corbett's personal fork of [QuickRecorder](https://github.com/lihaoyun6/QuickRecorder) by lihaoyun6 and its contributors. The aim is to improve the recording workflow for personal use, beginning with compatibility with Ice's hidden menu bar items.
+
+This is an independent fork, not an official successor or a claim that upstream is abandoned. The app currently retains its upstream name and behaviour; the repository is called Quick Recorder 2.
+
+## Licence and attribution
+
+This fork retains the [GNU Affero General Public License v3](LICENSE), original copyright notices and upstream history. Modifications to this fork are recorded in Git with dates and authors. Distributed versions must remain under AGPLv3 and provide corresponding source as required by that licence. Third-party components retain their own licences.
+
+Fork established on 1 October 2026. The initial change adds project documentation only; no application behaviour has changed.
+
+## Local development
+
+Open `QuickRecorder.xcodeproj` in Xcode and use the existing `QuickRecorder` scheme. Signing must use your own configuration rather than the upstream developer's team. See [TODO.md](TODO.md) for the first planned improvements.
+
+---
+
+## Original upstream README
+
 #
 <p align="center">
 <img src="./QuickRecorder/Assets.xcassets/AppIcon.appiconset/icon_128x128@2x.png" width="200" height="200" />
