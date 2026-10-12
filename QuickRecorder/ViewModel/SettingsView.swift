@@ -43,7 +43,7 @@ struct GeneralView: View {
     @AppStorage("countdown") private var countdown: Int = 0
     @AppStorage("poSafeDelay") private var poSafeDelay: Int = 1
     @AppStorage("showOnDock") private var showOnDock: Bool = true
-    @AppStorage("showMenubar") private var showMenubar: Bool = false
+    @AppStorage("showMenubar") private var showMenubar: Bool = true
     
     @State private var launchAtLogin = false
 
@@ -65,17 +65,22 @@ struct GeneralView: View {
                         }
                     SDivider()
                 }
-                SToggle("Show QuickRecorder on Dock", isOn: $showOnDock)
+                SToggle("Show Quick Recorder 2 on Dock", isOn: $showOnDock)
                     //.disabled(!showMenubar)
                 SDivider()
-                SToggle("Show QuickRecorder on Menu Bar", isOn: $showMenubar)
+                SToggle("Show Quick Recorder 2 on Menu Bar", isOn: $showMenubar)
                     //.disabled(!showOnDock)
             }
-            SGroupBox(label: "Update") { UpdaterSettingsView(updater: updaterController.updater) }
+            SGroupBox(label: "About") {
+                Text("Independent fork of QuickRecorder by lihaoyun6.")
+                    .font(.caption).foregroundColor(.secondary)
+                Text("GNU AGPLv3. Provided without warranty.")
+                    .font(.caption).foregroundColor(.secondary)
+                Link("Licence and original source", destination: URL(string: "https://github.com/lihaoyun6/QuickRecorder/blob/main/LICENSE")!)
+            }
             VStack(spacing: 8) {
-                CheckForUpdatesView(updater: updaterController.updater)
                 if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-                    Text("QuickRecorder v\(appVersion)")
+                    Text("Quick Recorder 2 v\(appVersion)")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
@@ -95,6 +100,7 @@ struct GeneralView: View {
 }
 
 struct RecorderView: View {
+    @AppStorage("showFloatingController") private var showFloatingController: Bool = false
     @AppStorage("countdown")        private var countdown: Int = 0
     @AppStorage("poSafeDelay")      private var poSafeDelay: Int = 1
     @AppStorage("highlightMouse")   private var highlightMouse: Bool = false
@@ -130,6 +136,11 @@ struct RecorderView: View {
             SGroupBox {
                 SToggle("Mini size Menu Bar controller", isOn: $miniStatusBar)
                 SDivider()
+                SToggle("Show floating recording controls", isOn: $showFloatingController, tips: "Off by default so Ice can hide recording controls without a floating toolbar appearing. Reveal the menu bar item in Ice or use recording hotkeys to pause or stop.")
+                    .onChange(of: showFloatingController) { enabled in
+                        if !enabled { controlPanel.orderOut(nil) }
+                    }
+                SDivider()
                 SToggle("Prevent Mac from sleeping while recording", isOn: $preventSleep)
                 SDivider()
                 if #available(macOS 13, *) {
@@ -139,7 +150,7 @@ struct RecorderView: View {
                 SToggle("Open video trimmer after recording", isOn: $trimAfterRecord)
             }
             SGroupBox {
-                SToggle("Exclude QuickRecorder itself", isOn: $hideSelf)
+                SToggle("Exclude Quick Recorder 2 itself", isOn: $hideSelf)
                 SDivider()
                 if #available (macOS 13, *) {
                     SToggle("Include Menu Bar in Recording", isOn: $includeMenuBar)

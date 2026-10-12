@@ -14,6 +14,7 @@ class PopoverState: ObservableObject {
 }
 
 struct StatusBarItem: View {
+    @AppStorage("showFloatingController") private var showFloatingController: Bool = false
     @State private var deviceWindowIsShowing = true
     @State private var isMainMenuShowing = false
     @State private var isHovering = false
@@ -139,6 +140,12 @@ struct StatusBarItem: View {
                     recordingLength = SCContext.getRecordingLength()
                     let timePassed = Date.now.timeIntervalSince(SCContext.startTime ?? t)
                     if SCContext.autoStop != 0 && timePassed / 60 >= CGFloat(SCContext.autoStop) { SCContext.stopRecording() }
+                    // Intentional hiding by Ice must not summon the floating fallback.
+                    // Duration and automatic-stop processing above must still run.
+                    guard showFloatingController else {
+                        if controlPanel.isVisible { controlPanel.orderOut(nil) }
+                        return
+                    }
                     if let visible = statusBarItem.button?.window?.occlusionState.contains(.visible) {
                         if visible { NSApp.windows.first(where: { $0.title == "Recording Controller".local })?.close(); return }
                         if SCContext.streamType != nil  && !visible && !(NSApp.windows.first(where: { $0.title == "Recording Controller".local })?.isVisible ?? false) {
@@ -234,7 +241,7 @@ func updateStatusBar() {
         iconView.frame = NSRect(x: 0, y: 1, width: getStatusBarWidth(), height: isMacOS14 ? 22 : 21)
         button.subviews = [iconView]
         button.frame = iconView.frame
-        button.setAccessibilityLabel("QuickRecorder")
+        button.setAccessibilityLabel("Quick Recorder 2")
         statusBarItem.isVisible = true
     }
 }

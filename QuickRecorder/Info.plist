@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleDisplayName</key>
+	<string>Quick Recorder 2</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -27,11 +29,11 @@
 			<key>CFBundleTypeIconFile</key>
 			<string>qmaIcon</string>
 			<key>CFBundleTypeName</key>
-			<string>QuickRecorder Multi-Track Audio</string>
+			<string>Quick Recorder 2 Multi-Track Audio</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>LSHandlerRank</key>
-			<string>Owner</string>
+			<string>Alternate</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>com.lihaoyun6.QuickRecorder.qma</string>
@@ -44,11 +46,7 @@
 	<true/>
 	<key>OSAScriptingDefinition</key>
 	<string>Scriptable</string>
-	<key>SUFeedURL</key>
-	<string>https://raw.githubusercontent.com/lihaoyun6/QuickRecorder/main/appcast.xml</string>
-	<key>SUPublicEDKey</key>
-	<string>dP6zY7RAyK3DtV/dDrQ2V2dB0BY36jADwMKHZIX89u4=</string>
-	<key>UTExportedTypeDeclarations</key>
+	<key>UTImportedTypeDeclarations</key>
 	<array>
 		<dict>
 			<key>UTTypeConformsTo</key>
