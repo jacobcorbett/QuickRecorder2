@@ -12,7 +12,7 @@ Fork established on 1 October 2026. Current fork version: **1.6.10** (build 170)
 
 Version 1.6.10 incorporates [upstream PR #294](https://github.com/lihaoyun6/QuickRecorder/pull/294) by dabeeeenster to restore menu-bar recording controls on macOS 27. It retains the fork's opt-in floating controller for Ice users.
 
-The fork remains private; pushing these changes does not make them publicly accessible.
+This fork is public. The source and version tags are available at [jacobcorbett/QuickRecorder2](https://github.com/jacobcorbett/QuickRecorder2).
 
 ## Local development
 

@@ -1,6 +1,6 @@
 # Quick Recorder 2 agent guidance
 
-- This is Jacob Corbett's independent private fork of lihaoyun6/QuickRecorder, licensed under GNU AGPLv3. Preserve LICENSE, upstream copyright notices, attribution and Git history. Do not describe upstream as abandoned without evidence.
+- This is Jacob Corbett's independent public fork of lihaoyun6/QuickRecorder, licensed under GNU AGPLv3. Preserve LICENSE, upstream copyright notices, attribution and Git history. Do not describe upstream as abandoned without evidence.
 - Work in small, reversible commits using specific conventional prefixes: feat:, fix:, chore:, docs:, refactor:.
 - Check git status --short before staging. Stage explicit files, preserve user edits, and keep secrets out of Git.
 - Run the smallest meaningful verification before committing. The existing Xcode project is QuickRecorder.xcodeproj and the shared scheme is QuickRecorder. Discover build requirements; do not invent signing credentials or team IDs.
