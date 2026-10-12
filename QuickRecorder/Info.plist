@@ -75,5 +75,13 @@
 			</dict>
 		</dict>
 	</array>
+	<key>SUFeedURL</key>
+	<string>https://raw.githubusercontent.com/jacobcorbett/QuickRecorder2/main/updates/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>Qb2IIs6a4I3po6MvALL9nl0ebs5w3gfqaP2JxBzWxVk=</string>
+	<key>SUEnableAutomaticChecks</key>
+	<true/>
+	<key>SUAutomaticallyUpdate</key>
+	<false/>
 </dict>
 </plist>

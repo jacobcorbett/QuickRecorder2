@@ -71,6 +71,11 @@ struct GeneralView: View {
                 SToggle("Show Quick Recorder 2 on Menu Bar", isOn: $showMenubar)
                     //.disabled(!showOnDock)
             }
+            SGroupBox(label: "Updates") {
+                UpdaterSettingsView(updater: updaterController.updater)
+                SDivider()
+                CheckForUpdatesView(updater: updaterController.updater)
+            }
             SGroupBox(label: "About") {
                 Text("Independent fork of QuickRecorder by lihaoyun6.")
                     .font(.caption).foregroundColor(.secondary)

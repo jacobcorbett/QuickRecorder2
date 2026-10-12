@@ -63,3 +63,30 @@ struct UpdaterSettingsView: View {
             }
     }
 }
+
+// Retained for the lifetime of the updater; Sparkle holds its delegate weakly.
+final class RecorderUpdaterDelegate: NSObject, SPUUpdaterDelegate {
+    private var deferredInstallTimer: Timer?
+
+    func updater(_ updater: SPUUpdater, mayPerform updateCheck: SPUUpdateCheck) throws {
+        guard SCContext.streamType == nil else {
+            throw NSError(domain: "com.jacobcorbett.QuickRecorder2.Updates", code: 1,
+                          userInfo: [NSLocalizedDescriptionKey: "Please finish your recording before checking for updates."])
+        }
+    }
+
+    func updater(_ updater: SPUUpdater, shouldPostponeRelaunchForUpdate item: SUAppcastItem,
+                 untilInvokingBlock installHandler: @escaping () -> Void) -> Bool {
+        guard SCContext.streamType != nil else { return false }
+        // Covers a recording started after an update was already downloaded.
+        // streamType stays set while the recording's writer finishes.
+        deferredInstallTimer?.invalidate()
+        deferredInstallTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
+            guard SCContext.streamType == nil else { return }
+            timer.invalidate()
+            self?.deferredInstallTimer = nil
+            installHandler()
+        }
+        return true
+    }
+}

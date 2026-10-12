@@ -89,3 +89,7 @@ fastlane/test_output
 
 iOSInjectionProject/
 .DS_Store
+
+# Python helper caches
+__pycache__/
+*.pyc

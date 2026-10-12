@@ -6,7 +6,7 @@
 
 A macOS screen recorder based on [QuickRecorder](https://github.com/lihaoyun6/QuickRecorder), with fixes for macOS 27 and optional floating controls for Ice users.
 
-Current version: **1.6.10**. Requires macOS 12.3 or later; the menu-bar fix was tested on macOS 27.0.1.
+Current version: **1.6.11**. Requires macOS 12.3 or later; the menu-bar fix was tested on macOS 27.0.1.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./img/preview_en_dark.png" />
@@ -17,9 +17,17 @@ Current version: **1.6.10**. Requires macOS 12.3 or later; the menu-bar fix was 
 
 - **macOS 27 menu-bar controls:** restore clicks on stop, pause/resume, camera and the main panel, incorporating [dabeeeenster’s upstream fix](https://github.com/lihaoyun6/QuickRecorder/pull/294).
 - **Optional floating controller:** keep it hidden when Ice hides the menu-bar item, with a Recorder setting to restore the floating controls.
-- **Separate app:** installs as Quick Recorder 2, with its own preferences and permissions. Upstream binary updates are disabled.
+- **Separate app:** installs as Quick Recorder 2, with its own preferences and permissions. Updates come from this fork’s GitHub releases.
 
 See [CHANGELOG.md](CHANGELOG.md) for changes and validation, including interactions that still need testing.
+
+## Download and updates
+
+Download **QuickRecorder2-1.6.11.zip** from [GitHub Releases](https://github.com/jacobcorbett/QuickRecorder2/releases/latest), unzip it and copy **Quick Recorder 2.app** to Applications. Versions before 1.6.11 need this one-time manual upgrade.
+
+Automatic update checks are enabled; automatic downloads are optional in **Settings → General → Updates**. You can also choose **Check for Updates…**. Signed updates are hosted entirely on GitHub, and update checks/restarts wait while you record.
+
+The initial release is signed with an Apple Development certificate and is not notarized, so macOS may require a manual approval on first launch. See [RELEASING.md](RELEASING.md) for the publishing workflow.
 
 ## Build and install
 
