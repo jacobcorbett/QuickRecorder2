@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+  <channel>
+    <title>Quick Recorder 2 updates</title>
+    <link>https://github.com/jacobcorbett/QuickRecorder2</link>
+    <item>
+      <title>Quick Recorder 2 1.6.11</title>
+      <pubDate>Mon, 12 Oct 2026 10:20:20 GMT</pubDate>
+      <sparkle:version>171</sparkle:version>
+      <sparkle:shortVersionString>1.6.11</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>12.3</sparkle:minimumSystemVersion>
+      <sparkle:releaseNotesLink>https://github.com/jacobcorbett/QuickRecorder2/releases/tag/v1.6.11</sparkle:releaseNotesLink>
+      <enclosure url="https://github.com/jacobcorbett/QuickRecorder2/releases/download/v1.6.11/QuickRecorder2-1.6.11.zip" length="5024026" type="application/octet-stream" sparkle:edSignature="K+BVzrK9/cx4RwnF6T7TMSV/SOcEsx4j0LndfOVDpKrmT5uefXkxlw4jgRt63jHdCxpnmeu29d4J+v6Kem6xBA==" />
+    </item>
+  </channel>
+</rss>
