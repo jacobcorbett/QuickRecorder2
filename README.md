@@ -1,83 +1,33 @@
 # Quick Recorder 2
 
-Jacob Corbett's personal fork of [QuickRecorder](https://github.com/lihaoyun6/QuickRecorder) by lihaoyun6 and its contributors. The aim is to improve the recording workflow for personal use, beginning with compatibility with Ice's hidden menu bar items.
+A macOS screen recorder based on [QuickRecorder](https://github.com/lihaoyun6/QuickRecorder), with fixes for macOS 27 and optional floating controls for Ice users.
 
-This is an independent fork, not an official successor or a claim that upstream is abandoned. The app installs as **Quick Recorder 2**, with separate preferences and permissions from upstream QuickRecorder. Upstream binary updates are disabled for this fork.
+Current version: **1.6.10**. Requires macOS 12.3 or later; the menu-bar fix was tested on macOS 27.0.1.
 
-## Licence and attribution
+## What changed
 
-This fork retains the [GNU Affero General Public License v3](LICENSE), original copyright notices and upstream history. Modifications to this fork are recorded in Git with dates and authors. Distributed versions must remain under AGPLv3 and provide corresponding source as required by that licence. Third-party components retain their own licences.
+- **macOS 27 menu-bar controls:** restore clicks on stop, pause/resume, camera and the main panel, incorporating [dabeeeenster’s upstream fix](https://github.com/lihaoyun6/QuickRecorder/pull/294).
+- **Optional floating controller:** keep it hidden when Ice hides the menu-bar item, with a Recorder setting to restore the floating controls.
+- **Separate app:** installs as Quick Recorder 2, with its own preferences and permissions. Upstream binary updates are disabled.
 
-Fork established on 1 October 2026. Current fork version: **1.6.10** (build 170). See [CHANGELOG.md](CHANGELOG.md) for fixes and validation.
+See [CHANGELOG.md](CHANGELOG.md) for changes and validation, including interactions that still need testing.
 
-Version 1.6.10 incorporates [upstream PR #294](https://github.com/lihaoyun6/QuickRecorder/pull/294) by dabeeeenster to restore menu-bar recording controls on macOS 27. It retains the fork's opt-in floating controller for Ice users.
+## Build and install
 
-This fork is public. The source and version tags are available at [jacobcorbett/QuickRecorder2](https://github.com/jacobcorbett/QuickRecorder2).
+Clone this repository and open `QuickRecorder.xcodeproj` in Xcode. Select the **QuickRecorder** scheme and configure the app target’s signing with your own Apple Development identity. Build with **Product → Build**.
 
-## Local development
+Use **Product → Show Build Folder in Finder**, then open `Products/Debug` and copy **Quick Recorder 2.app** to Applications. macOS will ask for recording permissions when needed.
 
-Open `QuickRecorder.xcodeproj` in Xcode and use the existing `QuickRecorder` scheme. Signing must use your own configuration rather than the upstream developer's team. Run `python3 scripts/test-menu-bar-routing.py` to check menu-bar click routing. See [TODO.md](TODO.md) for remaining validation.
+To check menu-bar click routing:
 
----
-
-## Original upstream README
-
-#
-<p align="center">
-<img src="./QuickRecorder/Assets.xcassets/AppIcon.appiconset/icon_128x128@2x.png" width="200" height="200" />
-<h1 align="center">QuickRecorder</h1>
-<h3 align="center">A lightweight and high-performance screen recorder for macOS<br><a href="./README_zh.md">[中文版本]</a><br><a href="https://lihaoyun6.github.io/quickrecorder/">[Landing Page]</a>
-</p>
-
-## Screenshot
-<p align="center">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./img/preview_en_dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="./img/preview_en.png">
-  <img alt="QuickRecorder Screenshots" src="./img/preview_en.png" width="840"/>
-</picture>
-</p>
-
-## Installation and Usage
-### System Requirements:
-- macOS 12.3 and Later
-
-### Install:
-Download the latest installation file [here](../../releases/latest) or install via Homebrew:
-
-```bash
-brew install lihaoyun6/tap/quickrecorder
+```sh
+python3 scripts/test-menu-bar-routing.py
 ```
 
-### Features/Usage:
-- You can use QuickRecorder to record your screens / windows / applications / mobile devices... etc.
+## Licence and credits
 
-- QuickRecorder supports driver-free audio loopback recording, mouse highlighting, screen magnifier and many more useful features.  
-- The new **"[Presenter Overlay](https://support.apple.com/guide/facetime/presenter-overlay-video-conferencing-fctm6333f4bd/mac)"** in macOS 14 was fully supported by QuickRecorder, which can overlay the camera in real time on your recording *(macOS 12/13 can only use camera floating window)*  
-- QuickRecorder is able to record `HEVC with Alpha` video format, that can contain alpha channel in the output file *(currently only iMovie and FCPX support this feature)*  
+Copyright © 2024 lihaoyun6. Fork modifications © 2026 Jacob Corbett, started 1 October 2026. Modification dates and contributors are recorded in Git and the changelog.
 
-## Q&A
-**1. Where can I reopen the main panel after closing it?**
-> Click the Dock tile or Menubar icon of QuickRecorder to reopen the main panel at any time.
+Licensed under the [GNU Affero General Public License v3](LICENSE), without warranty. Keep the licence and copyright notices with redistributed copies, and provide the corresponding source when distributing binaries. This repository contains the fork’s source; third-party components retain their own licences.
 
-**2. Why does QuickRecorder not a sandbox app?**
-> QuickRecorder has no plans to be uploaded to the App Store, so it does not need to be designed as a sandbox app.  
-
-**3. How to independently control the volume of system sound and sound from microphone in other video editor?**
-> QuickRecorder will merge the audio input from the microphone to the main audio track after recording by default. If you need to edit the video, you can turn off the `Record Microphone to Main Track` option in the settings panel. After turning off, the system sound and sound from microphone will be recorded into two audio tracks and can be edited independently.  
-
-## Donate
-<img src="./img/donate.png" width="350"/>
-
-## Thanks
-[Azayaka](https://github.com/Mnpn/Azayaka) @Mnpn
-> The source of inspiration and part of the code of the screen recording engine comes from the Azayaka project, and I am also one of the code contributors to this project
-
-[KeyboardShortcuts](https://github.com/sindresorhus/KeyboardShortcuts) @sindresorhus  
-> QuickRecorder uses this swift library to handle shortcut key events  
-
-[SwiftLAME](https://github.com/hidden-spectrum/SwiftLAME) @Hidden Spectrum
-> QuickRecorder uses this swift library to handle MP3 output
-
-[ChatGPT](https://chat.openai.com) @OpenAI
-> Note: Part of the code in this project was generated or refactored using ChatGPT.
+Credit to lihaoyun6 and the [QuickRecorder contributors](https://github.com/lihaoyun6/QuickRecorder), dabeeeenster for the macOS 27 fix, and the upstream projects [Azayaka](https://github.com/Mnpn/Azayaka), [KeyboardShortcuts](https://github.com/sindresorhus/KeyboardShortcuts), [SwiftLAME](https://github.com/hidden-spectrum/SwiftLAME) and [Sparkle](https://github.com/sparkle-project/Sparkle).
