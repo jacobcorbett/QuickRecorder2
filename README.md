@@ -1,8 +1,17 @@
+<p align="center">
+  <img src="./QuickRecorder/Assets.xcassets/AppIcon.appiconset/icon_128x128@2x.png" width="128" alt="Quick Recorder 2 app icon" />
+</p>
+
 # Quick Recorder 2
 
 A macOS screen recorder based on [QuickRecorder](https://github.com/lihaoyun6/QuickRecorder), with fixes for macOS 27 and optional floating controls for Ice users.
 
 Current version: **1.6.10**. Requires macOS 12.3 or later; the menu-bar fix was tested on macOS 27.0.1.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./img/preview_en_dark.png" />
+  <img src="./img/preview_en.png" width="840" alt="QuickRecorder recording interface, inherited by Quick Recorder 2" />
+</picture>
 
 ## What changed
 
