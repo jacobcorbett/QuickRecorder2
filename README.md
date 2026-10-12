@@ -2,17 +2,21 @@
 
 Jacob Corbett's personal fork of [QuickRecorder](https://github.com/lihaoyun6/QuickRecorder) by lihaoyun6 and its contributors. The aim is to improve the recording workflow for personal use, beginning with compatibility with Ice's hidden menu bar items.
 
-This is an independent fork, not an official successor or a claim that upstream is abandoned. The app currently retains its upstream name and behaviour; the repository is called Quick Recorder 2.
+This is an independent fork, not an official successor or a claim that upstream is abandoned. The app installs as **Quick Recorder 2**, with separate preferences and permissions from upstream QuickRecorder. Upstream binary updates are disabled for this fork.
 
 ## Licence and attribution
 
 This fork retains the [GNU Affero General Public License v3](LICENSE), original copyright notices and upstream history. Modifications to this fork are recorded in Git with dates and authors. Distributed versions must remain under AGPLv3 and provide corresponding source as required by that licence. Third-party components retain their own licences.
 
-Fork established on 1 October 2026. The initial change adds project documentation only; no application behaviour has changed.
+Fork established on 1 October 2026. Current fork version: **1.6.10** (build 170). See [CHANGELOG.md](CHANGELOG.md) for fixes and validation.
+
+Version 1.6.10 incorporates [upstream PR #294](https://github.com/lihaoyun6/QuickRecorder/pull/294) by dabeeeenster to restore menu-bar recording controls on macOS 27. It retains the fork's opt-in floating controller for Ice users.
+
+The fork remains private; pushing these changes does not make them publicly accessible.
 
 ## Local development
 
-Open `QuickRecorder.xcodeproj` in Xcode and use the existing `QuickRecorder` scheme. Signing must use your own configuration rather than the upstream developer's team. See [TODO.md](TODO.md) for the first planned improvements.
+Open `QuickRecorder.xcodeproj` in Xcode and use the existing `QuickRecorder` scheme. Signing must use your own configuration rather than the upstream developer's team. Run `python3 scripts/test-menu-bar-routing.py` to check menu-bar click routing. See [TODO.md](TODO.md) for remaining validation.
 
 ---
 

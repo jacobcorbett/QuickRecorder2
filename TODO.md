@@ -2,9 +2,9 @@
 
 ## Current focus
 
-- [ ] Add a preference to disable the floating controller when Ice hides the menu bar controls, preserving timer and automatic-stop updates.
-- [ ] Give the app the Quick Recorder 2 display name and its own bundle identifier and preferences.
-- [ ] Disable upstream binary updates for the custom app so they cannot replace the fork.
+- [x] Add a preference to disable the floating controller when Ice hides the menu bar controls, preserving timer and automatic-stop updates.
+- [x] Give the app the Quick Recorder 2 display name and its own bundle identifier and preferences.
+- [x] Disable upstream binary updates for the custom app so they cannot replace the fork.
 - [ ] Build locally using Jacob's signing configuration, then verify recording and Ice hide/reveal behaviour.
 
 ## Later
